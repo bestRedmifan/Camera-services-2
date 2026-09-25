@@ -1,0 +1,165 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#101827">
+<title>Barmaan Camera</title>
+<link rel="stylesheet" href="style.css">
+</head><body><div class="app"><header>
+<h1>📷 Barmaan Camera</h1>
+</header><main><section id="cameraPage" class="page active"><div class="panel"><div class="top-controls">
+<button id="switchCamera">🔄 Switch</button><button id="photoMode">📸 Photo</button>
+
+<button id="videoMode">🎥 Video</button>
+
+<button id="rotateLock">
+🔒 Rotate Lock
+</button><button id="lookEyes">
+👁️ Look Eyes
+</button>
+</div><div class="zoom-area"><span>Zoom</span>
+
+<input
+id="zoomRange"
+type="range"
+min="1"
+max="500"
+value="1"
+step="1">
+
+<strong id="zoomValue">1×</strong>
+
+</div><p class="hint">
+Digital zoom only — maximum 500×. No telephoto lens is used.
+</p><p class="hint" id="lookEyesStatus">
+Look Eyes: Off
+</p></div><div class="camera-container"><video
+id="cameraPreview"
+autoplay
+muted
+playsinline>
+</video>
+
+<div class="camera-overlay"><div id="cameraMessage"></div><button
+id="captureButton"
+class="capture-button">
+</button>
+
+</div></div></section><section id="homePage" class="page"><div class="page-header"><h2>🖼️ Home</h2><button id="openDeleted">
+♻️ Recently Deleted
+</button></div><div id="homeGrid" class="media-grid"></div></section><section id="deletedPage" class="page"><div class="page-header"><h2>♻️ Recently Deleted</h2><button id="backHome">
+← Home
+</button></div><div id="deletedGrid" class="media-grid"></div></section></main><nav><button id="navCamera">
+📷<span>Camera</span>
+</button><button id="navHome">
+🖼️<span>Home</span>
+</button><button id="navDeleted">
+♻️<span>Deleted</span>
+</button></nav></div><div id="optionsModal" class="modal"><div class="modal-box"><h2>Options</h2><div id="optionsContent"></div><button class="close-button" id="closeOptions">
+Close
+</button></div></div><div id="photoEditorModal" class="modal"><div class="modal-box editor-box"><h2>🖌️ Edit Photo</h2><div class="photo-editor"><img id="editPhoto"><canvas id="drawingCanvas"></canvas>
+
+</div><div class="editor-controls"><button id="drawButton">
+✏️ Draw
+</button><button id="textButton">
+🔤 Text
+</button><button id="clearDrawing">
+🧹 Clear
+</button></div><label class="range-label">Brush size
+
+<input
+id="brushSize"
+type="range"
+min="1"
+max="40"
+value="6">
+
+</label><div class="color-control"><label for="drawColor">
+🎨 Draw Color
+</label><input
+id="drawColor"
+type="color"
+value="#ffffff">
+
+</div><div class="color-control"><label for="textColor">
+🔤 Text Color
+</label><input
+id="textColor"
+type="color"
+value="#ffffff">
+
+</div><div class="editor-buttons"><button class="save-button" id="savePhoto">
+💾 Save
+</button><button id="cancelPhoto">
+Cancel
+</button></div></div></div><div id="videoEditorModal" class="modal"><div class="modal-box editor-box"><h2>✂️ Edit Video</h2><video
+id="editVideo"
+controls
+playsinline>
+</video>
+
+<div class="cut-control"><label>
+Start
+</label><input
+id="videoStart"
+type="range"
+min="0"
+max="1"
+step="0.01"
+value="0">
+
+<span id="startValue">
+0.00
+</span></div><div class="cut-control"><label>
+End
+</label><input
+id="videoEnd"
+type="range"
+min="0"
+max="1"
+step="0.01"
+value="1">
+
+<span id="endValue">
+0.00
+</span></div><p class="hint">
+Only cutting the beginning and end is supported.
+</p><div class="video-text-editor"><h3>🔤 Video Text</h3><label>
+Text<input
+id="videoText"
+type="text"
+placeholder="Enter text">
+</label>
+
+<label>
+Text Start<input
+id="videoTextStart"
+type="range"
+min="0"
+max="1"
+step="0.01"
+value="0">
+</label>
+
+<span id="videoTextStartValue">
+0.00
+</span><label>
+Text End<input
+id="videoTextEnd"
+type="range"
+min="0"
+max="1"
+step="0.01"
+value="1">
+</label>
+
+<span id="videoTextEndValue">
+0.00
+</span><p class="hint">
+The text appears only between the selected start and end time.
+</p></div><div id="videoStatus"></div><div class="editor-buttons"><button class="save-button" id="saveVideo">
+💾 Save Cut
+</button><button id="cancelVideo">
+Cancel
+</button></div></div></div><script src="script.js"></script></body>
+</html>
